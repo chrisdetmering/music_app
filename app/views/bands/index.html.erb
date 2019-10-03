@@ -1,0 +1,18 @@
+<h2>Bands</h2>
+
+
+<% Band.all.each do |band| %>
+
+<form action="<%= band_url(band) %>">
+<input type='submit' value="<%= band.name %>"> 
+</form>
+
+
+<% end %>
+
+<% content_for :footer do %>
+  <p>Links<p>
+  <form action="<%= new_band_url %>">
+  <input type ='submit' value="New Band">
+  </form>
+<% end %>

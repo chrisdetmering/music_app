@@ -1,0 +1,25 @@
+<h1> <%= @album.name %>  </h1>
+
+
+
+<%= content_for :footer do %>
+
+  <form > 
+  <input type="submit" value="New Track">
+  </form>
+
+  <form action="<%= edit_album_url(@album) %>"> 
+  <input type="submit" value="Edit Album">
+  </form>
+
+  <form action="<%= album_url(@album) %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <%= auth_token %>
+    <input type='submit' value='Delete Album'>
+  </form>
+
+  <form action="<%= band_url(@album.band_id) %>"> 
+  <input type="submit" value="Back to Band ">
+  </form>
+
+<% end %>

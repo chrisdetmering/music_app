@@ -1,0 +1,10 @@
+<h3>Put in a new band!</h3>
+
+<form action="<%= bands_url %>" method="post">
+  <%= auth_token %>
+  <label for='band_name'>Band Name:</label> <br>
+
+  <input type='text' name='band[name]'><br>
+
+  <input type='submit'>
+</form>

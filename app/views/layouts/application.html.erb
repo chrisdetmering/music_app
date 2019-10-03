@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MusicApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <h1 class='main-logo'>Musically</h1>
+
+  <% if !current_user.nil? %>
+
+  <div class="logout-button-pos">
+  <p> You are currently logged in as <%= current_user.email %>
+
+
+  <form action='<%= bands_url %>'>
+  <input type ="submit" value="Take me Home">
+  </form>
+
+
+
+  <form action="<%= session_url %>" method="post">
+
+    <input type="hidden"
+            name="authenticity_token"
+            value="<%= form_authenticity_token %>">
+
+    <input type='hidden' name="_method" value="delete">
+    <input type='submit' value="Sign Out" class="logout-button">
+  </div>
+
+
+
+  </form>
+  
+  <% end %>
+  <body class='body'>
+    <%= yield %>
+
+
+    <footer>
+      <%= yield :footer %>
+    </footer>
+  </body>
+</html>

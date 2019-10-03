@@ -1,0 +1,22 @@
+
+
+<form action=" <%= new_session_url %> ">
+<input type='submit' value="Go to login">
+</form>
+
+<h1 class="signup-header">New User</h1>
+<form   action="<%= users_url %>" method='post'>
+<%= auth_token %>
+
+<label for='user_email' class="new-user-email">Email:</label>
+<input type="text" name='user[email]' id='user_email' class="new-user-email-entry">
+<br>
+<label for='user_password' class="new-user-password" >Password:</label>
+<input type="password" name='user[password]' id='user_password' class="new-user-password-entry">
+<br>
+  <div class='button'>
+<input type='submit' class='button'>
+  </div>
+</form>
+
+

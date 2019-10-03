@@ -1,0 +1,34 @@
+<h2> <%= @band.name %> </h2>
+
+
+<h3>Albums</h3>
+<% @albums.each do |album| %>
+  <form action="<%= album_url(album) %>">
+   <input type="submit" value="<%= album.name %>" >
+  </form>
+<% end %>
+
+<br>
+
+
+<%= content_for :footer do %>
+
+  <form action="<%= new_band_album_url(@band) %>"> 
+  <input type="submit" value="New Album">
+  </form>
+
+  <form action="<%= edit_band_url(@band) %>"> 
+  <input type="submit" value="Edit Band">
+  </form>
+
+  <form action="<%= band_url(@band) %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <%= auth_token %>
+  <input type='submit' value='Delete Band'>
+  </form>
+
+  <form action="<%= bands_url %>"> 
+  <input type="submit" value="All Bands">
+  </form>
+
+<% end %>
